@@ -5,22 +5,22 @@ import { Router } from 'express';
 // import DeleteTransactionService from '../services/DeleteTransactionService';
 // import ImportTransactionsService from '../services/ImportTransactionsService';
 
-const transactionsRouter = Router();
+const objectiveRouter = Router();
 
-transactionsRouter.get('/', async (request, response) => {
+objectiveRouter.get('/', async (request, response) => {
   // TODO
 });
 
-transactionsRouter.post('/', async (request, response) => {
+objectiveRouter.post('/', async (request, response) => {
   // TODO
 });
 
-transactionsRouter.delete('/:id', async (request, response) => {
+objectiveRouter.delete('/:id', async (request, response) => {
   // TODO
 });
 
-transactionsRouter.post('/import', async (request, response) => {
+objectiveRouter.post('/import', async (request, response) => {
   // TODO
 });
 
-export default transactionsRouter;
+export default objectiveRouter;
