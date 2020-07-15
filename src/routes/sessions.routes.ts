@@ -3,8 +3,8 @@ import AuthService from '../services/AuthService';
 
 const sessionRouter = Router();
 
-sessionRouter.post('/', async (req, res) => {
-  const { email, password } = req.body;
+sessionRouter.post('/', async (request, response) => {
+  const { email, password } = request.body;
 
   const authUser = new AuthService();
 
@@ -15,7 +15,7 @@ sessionRouter.post('/', async (req, res) => {
 
   delete user.password;
 
-  return res.json({ user, token });
+  return response.json({ user, token });
 });
 
 export default sessionRouter;

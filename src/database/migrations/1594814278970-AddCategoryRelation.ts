@@ -1,11 +1,11 @@
 import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export default class CreateObjectiveTable1594680162649
+export default class AddCategoryRelation1594814278970
   implements MigrationInterface {
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
-        name: 'objectives',
+        name: 'categories',
         columns: [
           {
             name: 'id',
@@ -15,16 +15,8 @@ export default class CreateObjectiveTable1594680162649
             default: 'uuid_generate_v4()',
           },
           {
-            name: 'conclusion_progress',
-            type: 'integer',
-          },
-          {
-            name: 'objective',
+            name: 'title',
             type: 'varchar',
-          },
-          {
-            name: 'date',
-            type: 'timestamp with time zone',
             isNullable: false,
           },
           {
@@ -43,6 +35,6 @@ export default class CreateObjectiveTable1594680162649
   }
 
   public async down(queryRunner: QueryRunner): Promise<void> {
-    await queryRunner.dropTable('objectives');
+    await queryRunner.dropTable('categories');
   }
 }

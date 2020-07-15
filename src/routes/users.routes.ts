@@ -8,8 +8,8 @@ import ensureAuth from '../middlewares/ensureAuth';
 const userRouter = Router();
 const upload = multer(uploadConfig);
 
-userRouter.post('/', async (req, res) => {
-  const { name, email, password } = req.body;
+userRouter.post('/', async (request, response) => {
+  const { name, email, password } = request.body;
 
   const createUser = new CreateUserService();
 
@@ -21,24 +21,24 @@ userRouter.post('/', async (req, res) => {
 
   delete user.password;
 
-  return res.json(user);
+  return response.json(user);
 });
 
 userRouter.patch(
   '/avatar',
   ensureAuth,
   upload.single('avatar'),
-  async (req, res) => {
+  async (request, response) => {
     const updateUserAvatar = new UpdateUserAvatarService();
 
     const user = await updateUserAvatar.execute({
-      user_id: req.user.id,
-      avatarFilename: req.file.filename,
+      user_id: request.user.id,
+      avatarFilename: request.file.filename,
     });
 
     delete user.password;
 
-    return res.json(user);
+    return response.json(user);
   },
 );
 
